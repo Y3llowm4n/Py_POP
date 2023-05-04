@@ -1,0 +1,90 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">Mike's Page</div>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Products</a></li>
+            <i class="fas fa-shopping-cart"></i>
+        </ul>
+    </nav>
+
+    <div class="flex-box">
+        <div class="left">
+            <div class="big-img">
+                <img src={{url_for('static',filename="images/red.png")}}>
+            </div>
+            <div class="images">
+                <div class="small-img">
+                    <img src={{url_for('static',filename="images/red.png")}} onclick="showImg(this.src)">
+                </div>
+                <div class="small-img">
+                    <img src={{url_for('static',filename="images/black.png")}} onclick="showImg(this.src)">
+                </div>
+                <div class="small-img">
+                    <img src={{url_for('static',filename="images/white.png")}} onclick="showImg(this.src)">
+                </div>
+                <div class="small-img">
+                    <img src={{url_for('static',filename="images/blue.png")}} onclick="showImg(this.src)">
+                </div>
+            </div>
+        </div>
+
+        <div class="right">
+            <div class="url">Home > Product > T-Shirt</div>
+            <div class="pname">408 AUTOBIOGRAPHY TEES</div>
+            <div class="ratings">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+            </div>
+            <div class="price">$40</div>
+            <div class="size">
+                <p>Size :</p>
+                <div class="psize active">M</div>
+                <div class="psize">L</div>
+                <div class="psize">XL</div>
+                <div class="psize">XXL</div>
+            </div>
+            <div class="quantity">
+                <p>Quantity :</p>
+                <input type="number" min="1" max="5" value="1">
+            </div>
+            <div class="discount">
+                <label for="discount-code">Discount Code:</label>
+                <input type="text" id="discount-code" name="discount-code">
+                <button onclick="applyDiscount()">Apply</button>
+            </div>
+            <div class="btn-box">
+                <button class="cart-btn">Add to Cart</button>
+                <button class="buy-btn">Buy Now</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let bigImg = document.querySelector('.big-img img');
+        function showImg(pic){
+            bigImg.src = pic;
+        }
+        function applyDiscount() {
+            const discountCode = document.getElementById('discount-code').value;
+            if (discountCode) {
+                alert(`Discount code "${discountCode}" applied successfully!`);
+            } else {
+                alert('Please enter a discount code.');
+            }
+        }
+    </script>
+</body>
+</html>
