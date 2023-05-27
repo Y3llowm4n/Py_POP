@@ -61,9 +61,20 @@
                 <input type="number" min="1" max="5" value="1">
             </div>
             <div class="discount">
-                <label for="discount-code">Discount Code:</label>
-                <input type="text" id="discount-code" name="discount-code">
+            {%block content%}
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        {% for msg in messages %}
+                            <p>{{msg}}</p>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+            <form method="POST" action="/">
+                <label for="discount_code">Discount Code:</label>
+                <input type="text" id="discount_code" name="discount_code" required>
                 <button onclick="applyDiscount()">Apply</button>
+            </form>
+            {% endblock %}
             </div>
             <div class="btn-box">
                 <button class="cart-btn">Add to Cart</button>
