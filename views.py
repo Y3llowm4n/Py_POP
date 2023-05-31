@@ -1,5 +1,4 @@
 from flask import Blueprint, render_template, request, flash, redirect
-from os import environ as env
 import pypyodbc as odbc
 import pandas as pd 
 import sys
