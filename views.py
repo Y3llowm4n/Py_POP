@@ -13,6 +13,7 @@ def insert_table():
         conn = None
         cursor = None  # Initialize cursor with None
 
+# configre new connection string after renaming database
         try:
             # Connect to the Azure SQL Database
             connection_string = (
