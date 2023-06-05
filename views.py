@@ -13,11 +13,11 @@ def insert_table():
         conn = None
         cursor = None  # Initialize cursor with None
 
-# configre new connection string after renaming database
+        # configre new connection string after renaming database
         try:
             # Connect to the Azure SQL Database
             connection_string = (
-                'DRIVER={ODBC Driver 18 for SQL Server};Server=tcp:terraform-sql-server01.database.windows.net,1433;Database=terraform-sql-db01;Uid=' + username + ';Pwd=' + password + ';Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;')
+                'DRIVER={ODBC Driver 18 for SQL Server};Server=tcp:sqlsrv-py-prod.database.windows.net,1433;Database=sqldb-py-prod;Uid=' + username + ';Pwd=' + password + ';Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;')
             conn = odbc.connect(connection_string)
             cursor = conn.cursor()
 
